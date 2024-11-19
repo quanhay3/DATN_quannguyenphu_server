@@ -18,6 +18,8 @@ let accessToken =
 
 export const getProduct = async (req, res) => {
   try {
+    console.log("run");
+    
     const aLazadaAPIWithToken = new LazadaAPI(
       appKey,
       clientSecret,
@@ -43,6 +45,8 @@ export const getProduct = async (req, res) => {
     // );
 
     const response = await shopify.product.list();
+    console.log(dataFromLazada?.data[2] || []);
+
     res.json({
       lazada: dataFromLazada?.data,
       shopify: response,
